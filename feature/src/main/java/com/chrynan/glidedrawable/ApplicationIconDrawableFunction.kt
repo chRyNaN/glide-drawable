@@ -13,7 +13,7 @@ class ApplicationIconDrawableFunction(
 
     companion object {
 
-        private const val PACKAGE_ID_PREFIX = "PackageName:"
+        private const val PACKAGE_ID_PREFIX = "application:packageName:"
     }
 
     override val uniqueKey: Key
