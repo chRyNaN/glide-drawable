@@ -12,7 +12,7 @@ implementation 'com.github.chRyNaN.glide-drawable:library:VERSION'
 ```
 **Drawable Function Implementations:**
 ```groovy
-implementation 'com.github.chRyNaN.glide-drawable:feature:v0.1.3'
+implementation 'com.github.chRyNaN.glide-drawable:feature:VERSION'
 ```
 
 ## Using the library
