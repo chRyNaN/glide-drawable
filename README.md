@@ -20,8 +20,23 @@ implementation 'com.github.chRyNaN.glide-drawable:feature:VERSION'
 * Pass in a function that returns a `Drawable` instance into Glide. The function will be resolved asynchronously and the `Drawable` will be cached using Glide.
 ```kotlin
 Glide.with(context)
-      .load({ getMyDrawable() })
-      .into(view)
+      .loadFunction { getMyDrawable() }
+      .into(imageView)
+// Or
+Glide.with(context)
+      .load(myDrawableFunctionClassImplementation)
+      .into(imageView)
+```
+
+* Register the `DrawableFunction` class:
+```kotlin
+@GlideModule
+class SearchAppGlideModule : AppGlideModule() {
+
+    override fun registerComponents(context: Context, glide: Glide, registry: Registry) {
+        registry.prepend(DrawableFunction::class.java, Drawable::class.java, DrawableFunctionLoaderFactory())
+    }
+}
 ```
 
 This approach is different from using the `load(getMyDrawable())` function because that would resolve the drawable synchronously when the function is called. Passing a function to load, `load(f: () -> Drawable)`, resolves the `Drawable` asynchronously.
